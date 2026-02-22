@@ -1,104 +1,82 @@
-import Link from 'next/link'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import Image from 'next/image'
-
-
+import Link from 'next/link';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import Image from 'next/image';
+import SpotlightCard from './SpotlightCard';
+import { Network, ArrowUpDown, Repeat } from 'lucide-react';
 
 const algorithms = [
   {
     id: 'pathfinder',
-    title: "Pathfinder",
-    description: "Visualize graph algorithms like dijkstra, BFS, DFS",
-    image: '/AlgorithmVisualizer/images/graph.png?height=200&width=300'
-  },
-  {
-    id: 'recursion-tree',
-    title: 'Recursion Tree',
-    description: "The process in which a function calls itself directly or indirectly is called recursion",
-    image: '/AlgorithmVisualizer/images/recursion.jpg?height=200&width=300'
+    title: 'Pathfinder',
+    description:
+      'Navigate the shortest paths with intelligent graph traversal algorithms.',
+    details:
+      'Watch Dijkstra, BFS, and DFS dynamically explore weighted and unweighted graphs, revealing optimal routes in real-time visualization.',
+    icon: Network,
   },
   {
     id: 'sorting',
     title: 'Sorting Algorithm',
-    description: "Compare different sorting algorithms",
-    image: '/AlgorithmVisualizer/images/sort.png?height=200&width=300'
+    description:
+      'Experience the elegance of sorting through side-by-side comparisons.',
+    details:
+      "From Quick Sort's divide-and-conquer strategy to Bubble Sort's simplicity, witness how different approaches tackle the same challenge with varying efficiency.",
+    icon: ArrowUpDown,
   },
   {
     id: 'recursive-sorting',
     title: 'Recursive Sorting',
-    description: "Compare different recursive sorting algorithms",
-    image: '/AlgorithmVisualizer/images/sort.png?height=200&width=300'
+    description: 'Dive deep into the recursive nature of advanced sorting.',
+    details:
+      'Unravel the divide-and-conquer magic of Merge Sort and Quick Sort as they break down problems into elegant, self-similar solutions that rebuild optimal order.',
+    icon: Repeat,
   },
-  {
-    id: 'n-queen',
-    title: 'N Queen',
-    description: "The N queens puzzle is the problem of placing N chess queens on an N*N chessboard so that no two queens threaten each other",
-    image: '/AlgorithmVisualizer/images/queen.PNG?height=200&width=300'
-  },
-  {
-    id: 'turing-machine',
-    title: 'Turing Machine',
-    description: "A Turing machine is a mathematical model of computation that defines an abstract machine that manipulates symbols on a strip of tape according to a table of rules",
-    image: '/AlgorithmVisualizer/images/turing.jpg?height=200&width=300'
-  },
-  {
-    id: 'prime-numbers',
-    title: 'Prime Numbers',
-    description: "Visualize how Seive is better than brute force",
-    image: '/AlgorithmVisualizer/images/primes.jpg?height=200&width=300'
-  },
-  {
-    id: 'convex-hull',
-    title: 'Convex Hull',
-    description: "The convex hull of a set of points is the smallest convex polygon that contains all the points of it",
-    image: '/AlgorithmVisualizer/images/convex-hull.png?height=200&width=300'
-  },
-  {
-    id: 'binary-search',
-    title: 'Binary Search',
-    description: "Binary search is an efficient algorithm for finding an item from a sorted list of item",
-    image: '/AlgorithmVisualizer/images/binary-search.png?height=200&width=300'
-  },{
-    id: 'game-of-life',
-    title: 'Game of Life',
-    description: "Visualize the Game of Life cellular automaton",
-    image: '/AlgorithmVisualizer/images/game-of-life.png?height=200&width=300'
-  },
-  // {
-  //   id: '15-puzzle',
-  //   title: '15 Puzzle',
-  //   description: "The 15-puzzle is a sliding puzzle that consists of a frame of numbered square tiles in random order with one tile missing",
-  //   image: '/AlgorithmVisualizer/images/15puzzle.PNG?height=200&width=300'
-  // }
-]
+];
 
 export function AlgorithmCards() {
   return (
     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {algorithms.map((algorithm) => (
-        <Link key={algorithm.id} href={`/${algorithm.id}`} className="block group">
-          <Card className="overflow-hidden transition-shadow hover:shadow-lg h-full flex flex-col">
-            <div className="relative h-48">
-              <Image
-                src={algorithm.image}
-                alt={algorithm.title}
-                layout="fill"
-                objectFit="cover"
-                className="transition-transform duration-300 group-hover:scale-105"
-              />
-            </div>
-            <CardHeader className="flex-grow">
-              <CardTitle className="text-2xl group-hover:text-primary transition-colors duration-300">
-                {algorithm.title}
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="flex-grow flex flex-col justify-between">
-              <p className="text-lg text-muted-foreground">{algorithm.description}</p>
-            </CardContent>
-          </Card>
-        </Link>
-      ))}
+      {algorithms.map(algorithm => {
+        const Icon = algorithm.icon;
+        return (
+          <SpotlightCard
+            key={algorithm.id}
+            className="custom-spotlight-card"
+            spotlightColor="#56055d"
+          >
+            <Link href={`/${algorithm.id}`} className="block group h-full">
+              <div className="flex flex-col h-full">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="flex-shrink-0">
+                    <Icon
+                      className="w-10 h-10 text-purple-400"
+                      strokeWidth={1.5}
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <h2 className="text-2xl font-semibold mb-2">
+                      {algorithm.title}
+                    </h2>
+                  </div>
+                </div>
+                <p className="text-base text-gray-300 leading-relaxed flex-1">
+                  <span className="block font-medium text-gray-200 mb-3">
+                    {algorithm.description}
+                  </span>
+                  <span className="block text-sm text-gray-400 leading-loose">
+                    {algorithm.details}
+                  </span>
+                </p>
+                <div className="mt-6 pt-4 border-t border-gray-700">
+                  <span className="text-sm text-purple-400 group-hover:text-purple-300 transition-colors">
+                    Explore Algorithm →
+                  </span>
+                </div>
+              </div>
+            </Link>
+          </SpotlightCard>
+        );
+      })}
     </div>
-  )
+  );
 }
-

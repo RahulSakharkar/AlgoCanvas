@@ -1,27 +1,49 @@
-import Image from 'next/image'
+'use client';
+
+import Image from 'next/image';
+import { LayoutGroup, motion } from 'motion/react';
+import RotatingText from './RotatingText';
 
 export default function Hero() {
-    return (
-        <section className="container mx-auto px-6 py-12 w-full flex flex-col md:flex-row items-center gap-8">
-            <div className="md:w-3/4 space-y-4">
-                <h1 className="text-7xl font-bold">Algorithm Visualizer</h1>
-                <p className="text-3xl text-muted-foreground">
-                    Explore algorithms with step-by-step visualizations,
-                    simplifying the learning process and making it more engaging
-                    for a better understanding
-
-                </p>
-            </div>
-            <div className="md:w-1/4">
-                <Image
-                    src="/AlgorithmVisualizer/images/algorithm.png?height=400&width=600"
-                    alt="Hero image"
-                    width={300}
-                    height={200}
-                    // className="rounded-lg shadow-lg"
-                />
-            </div>
-        </section>
-    )
+  return (
+    <section className="heading-container relative py-20 px-4">
+      <div className="main-heading max-w-4xl mx-auto text-center">
+        <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">
+          <LayoutGroup>
+            <motion.span layout style={{ display: 'inline-block' }}>
+              Watch
+            </motion.span>{' '}
+            <RotatingText
+              texts={[
+                'Bubble Sort',
+                'Quick Sort',
+                'Merge Sort',
+                'Heap Sort',
+                'Dijkstra',
+                'BFS',
+                'DFS',
+                'A* Algorithm',
+              ]}
+              mainClassName="px-3 md:px-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white overflow-hidden py-1 md:py-2 justify-center rounded-lg inline-flex"
+              staggerFrom="last"
+              initial={{ y: '100%' }}
+              animate={{ y: 0 }}
+              exit={{ y: '-120%' }}
+              staggerDuration={0.025}
+              splitLevelClassName="overflow-hidden pb-1"
+              transition={{ type: 'spring', damping: 30, stiffness: 400 }}
+              rotationInterval={2500}
+            />{' '}
+            <motion.span layout style={{ display: 'inline-block' }}>
+              Come Alive
+            </motion.span>
+          </LayoutGroup>
+        </h1>
+        <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
+          Master algorithms through interactive visualization. See every step,
+          understand every move.
+        </p>
+      </div>
+    </section>
+  );
 }
-

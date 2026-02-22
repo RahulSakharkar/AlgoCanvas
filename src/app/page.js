@@ -1,30 +1,48 @@
-"use client";
-import Navbar from "@/components/navbar";
-import { AlgorithmCards } from "./components/algorithm-cards";
-import Footer from "./components/footer";
-import Hero from "./components/hero";
+'use client';
+import PillNav from '@/components/PillNav';
+import { AlgorithmCards } from './components/algorithm-cards';
+import Footer from './components/footer';
+import Hero from './components/hero';
+import DotGrid from './components/DotGrid';
 
-   
+const navItems = [
+  { label: 'Home', href: '/' },
+  { label: 'About Me', href: '#' },
+  { label: 'GitHub', href: 'https://github.com/RahulSakharkar' },
+];
+
 export default function Page() {
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar title="Algorithm Visualizer"/>
-      <Hero/>
-    {/* <header className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
-      <div className="container mx-auto py-16 px-4 text-center">
-        <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
-          Algorithm Visualizer
-        </h1>
-        <p className="mt-6 max-w-2xl mx-auto text-xl">
-          Explore and visualize various algorithms to better understand their inner workings and efficiency.
-        </p>
+    <div className="min-h-screen bg-background relative">
+      <div className="fixed inset-0 -z-50">
+        <DotGrid
+          dotSize={5}
+          gap={15}
+          baseColor="#271E37"
+          activeColor="#5227FF"
+          proximity={120}
+          shockRadius={250}
+          shockStrength={5}
+          resistance={750}
+          returnDuration={1.5}
+        />
       </div>
-    </header> */}
-    <main className="container mx-auto py-12 px-4">
-      <AlgorithmCards />
-    </main>
-    <Footer/>
-  </div>
-  
-  )
+      <PillNav
+        items={navItems}
+        baseColor="#e7e2f5"
+        pillColor="#060010"
+        hoveredPillTextColor="#060010"
+        pillTextColor="white"
+        ease="power2.easeOut"
+        initialLoadAnimation
+      />
+      <Hero />
+      <main className="container mx-auto py-12 px-4">
+        <div className="cards-container">
+          <AlgorithmCards />
+        </div>
+      </main>
+      <Footer />
+    </div>
+  );
 }
