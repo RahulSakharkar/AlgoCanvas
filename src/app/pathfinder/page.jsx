@@ -70,7 +70,7 @@ class Pathfinder extends Component {
         </div>
         <PillNav
           items={navItems}
-          baseColor="#e7e2f5"
+          baseColor="aliceblue"
           pillColor="#060010"
           hoveredPillTextColor="#060010"
           pillTextColor="white"

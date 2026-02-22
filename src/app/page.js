@@ -24,7 +24,7 @@ export default function Page() {
       </div>
       <PillNav
         items={navItems}
-        baseColor="#e7e2f5"
+        baseColor="aliceblue"
         pillColor="#060010"
         hoveredPillTextColor="#060010"
         pillTextColor="white"

@@ -8,22 +8,21 @@ const Rect = ({ marg, rect }) => {
         } else if (rect.isSorting) {
             return "red";
         } else {
-            return "black"
+            return '#add8e6';
         }
     }
 
     return (
-        <div
-            className='rect'
-            style={{
-                height: rect.width,
-                background: checkColor(),
-                margin: marg,
-                // float:'left',
-                verticalAlign: 'middle'
-            }}
-        >
-        </div>
+      <div
+        className="rect"
+        style={{
+          height: rect.width,
+          background: checkColor(),
+          margin: marg,
+          // float:'left',
+          verticalAlign: 'middle',
+        }}
+      ></div>
     );
 
 
