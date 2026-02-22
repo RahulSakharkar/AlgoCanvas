@@ -4,12 +4,7 @@ import { AlgorithmCards } from './components/algorithm-cards';
 import Footer from './components/footer';
 import Hero from './components/hero';
 import DotGrid from './components/DotGrid';
-
-const navItems = [
-  { label: 'Home', href: '/' },
-  { label: 'About Me', href: '#' },
-  { label: 'GitHub', href: 'https://github.com/RahulSakharkar' },
-];
+import { navItems } from './constants';
 
 export default function Page() {
   return (

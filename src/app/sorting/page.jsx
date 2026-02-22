@@ -4,8 +4,8 @@ import React, { Component } from 'react';
 import { quickSort } from "@/lib/algorithms/quickSort";
 import { bubbleSort, insertionSort, selectionSort } from "@/lib/algorithms/sortingAlgorithms";
 import Rects from "./rects";
-
-import Navbar from '@/components/navbar';
+import PillNav from '@/components/PillNav';
+import {navItems} from "../constants";
 import Menu from "./menu";
 
 class Sort extends Component {
@@ -31,7 +31,15 @@ class Sort extends Component {
     render() {
         return (
             <div className="flex flex-col h-screen">
-                <Navbar title="Sorting Visualizer" />
+                <PillNav
+                    items={navItems}
+                    baseColor="#e7e2f5"
+                    pillColor="#060010"
+                    hoveredPillTextColor="#060010"
+                    pillTextColor="white"
+                    ease="power2.easeOut"
+                    initialLoadAnimation
+                />
 
                 <div className="flex flex-1 overflow-hidden">
                     <Menu

@@ -1,11 +1,12 @@
 "use client";
-import Navbar from '@/components/navbar';
+import PillNav from '@/components/PillNav';
 import heapSort from "@/lib/algorithms/heapSort";
 import mergeSort from '@/lib/algorithms/mergeSort';
 import { quickSortRecursive } from "@/lib/algorithms/quickSortRecursive";
 import React, { Component } from 'react';
 import Menu from "./menu";
 import Rects from "./rects";
+import { navItems } from '../constants';
 
 class RecursiveSort extends Component {
     state = {
@@ -33,7 +34,15 @@ class RecursiveSort extends Component {
     render() {
         return (
             <div className="flex flex-col h-screen">
-                <Navbar title="Recursive Sorting" />
+                <PillNav
+                    items={navItems}
+                    baseColor="#e7e2f5"
+                    pillColor="#060010"
+                    hoveredPillTextColor="#060010"
+                    pillTextColor="white"
+                    ease="power2.easeOut"
+                    initialLoadAnimation
+                    />
                 <div className="flex flex-1 overflow-hidden">
                     <Menu
                         disable={this.state.isRunning}
