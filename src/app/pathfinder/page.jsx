@@ -236,8 +236,10 @@ class Pathfinder extends Component {
       const node = visitedNodesInOrder[i];
       const newGrid = toggleVisit(this.state.grid, node.row, node.col);
       //this.setState({grid:newGrid});
-      document.getElementById(`node-${node.row}-${node.col}`).className =
-        'node node-visited';
+      if (!node.isStartNode && !node.isEndNode) {
+        document.getElementById(`node-${node.row}-${node.col}`).className =
+          'node node-visited';
+      }
       await sleep(10);
       // }, 10 * i);
     }
@@ -255,8 +257,10 @@ class Pathfinder extends Component {
       if (i === nodesInShortestPathOrder.length - 1) {
         this.setState({ grid: newGrid });
       }
-      document.getElementById(`node-${node.row}-${node.col}`).className =
-        'node node-shortest-path';
+      if (!node.isStartNode && !node.isEndNode) {
+        document.getElementById(`node-${node.row}-${node.col}`).className =
+          'node node-shortest-path';
+      }
       await sleep(50);
       //}, 50 * i);
     }
