@@ -1,6 +1,6 @@
 const navItems = [
   { label: 'Home', href: '/' },
-  { label: 'About Me', href: '#' },
+  { label: 'About Me', href: '/about-me' },
   { label: 'GitHub', href: 'https://github.com/RahulSakharkar' },
 ];
 

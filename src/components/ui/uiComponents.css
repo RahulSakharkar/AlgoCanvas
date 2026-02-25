@@ -1,0 +1,7 @@
+.pointer-events-none {
+    background-color: #060010;
+}
+
+button[role="switch"][data-state="checked"] {
+    background-color: #47054f !important;
+}
