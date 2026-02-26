@@ -1,5 +1,96 @@
-.pc-card {
-    position: relative;
-    top: 140px;
-    left: 50px;
+/* ===== About Page - Vertical Scroll Layout ===== */
+
+.about-page {
+  position: relative;
+  min-height: 100vh;
+}
+
+.about-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+
+
+/* --- Profile Card Section --- */
+.profile-section {
+  padding-top: 120px;
+}
+
+/* --- About Text Section --- */
+.about-text {
+  max-width: 640px;
+  color: #e0e0e0;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+}
+
+.about-text h2 {
+  margin: 0 0 20px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #f0f0f0;
+}
+
+.about-text p {
+  margin: 0;
+}
+
+/* --- Contact Section --- */
+.contact-card {
+  max-width: 520px;
+  width: 100%;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+}
+
+.contact-card h2 {
+  margin: 0 0 28px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #f0f0f0;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 14px 24px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #d0d0f0;
+  font-size: 1.05rem;
+  text-decoration: none;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.contact-link:hover {
+  background: rgba(82, 39, 255, 0.15);
+  border-color: rgba(82, 39, 255, 0.4);
+  color: #ffffff;
+}
+
+.contact-icon {
+  font-size: 1.3rem;
 }
